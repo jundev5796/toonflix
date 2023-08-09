@@ -52,6 +52,9 @@ class CurrencyCard extends StatelessWidget {
                         fontSize: 20,
                       ),
                     ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     Text(
                       code,
                       style: TextStyle(
