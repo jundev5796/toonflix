@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CurrencyCard extends StatelessWidget {
-  const CurrencyCard({super.key});
+  final String name, code, amount;
+  final IconData icon;
+
+  const CurrencyCard(
+      {super.key,
+      required this.name,
+      required this.code,
+      required this.amount,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +27,9 @@ class CurrencyCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Euro',
-                  style: TextStyle(
+                Text(
+                  name,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 32,
                     fontWeight: FontWeight.w600,
@@ -32,15 +40,15 @@ class CurrencyCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Text(
-                      '6 428',
-                      style: TextStyle(
+                    Text(
+                      amount,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                       ),
                     ),
                     Text(
-                      'EURO',
+                      code,
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                         fontSize: 20,
@@ -54,8 +62,8 @@ class CurrencyCard extends StatelessWidget {
               scale: 2.2,
               child: Transform.translate(
                 offset: const Offset(-5, 12),
-                child: const Icon(
-                  Icons.euro_rounded,
+                child: Icon(
+                  icon,
                   color: Colors.white,
                   size: 88,
                 ),
