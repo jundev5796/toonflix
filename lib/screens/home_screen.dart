@@ -28,9 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
         totalSeconds = totalSeconds - 1;
       });
     }
-    setState(() {
-      totalSeconds = totalSeconds - 1;
-    });
   }
 
   void onStartPressed() {
