@@ -50,9 +50,17 @@ class HomeScreen extends StatelessWidget {
       itemBuilder: (context, index) {
         print(index);
         var webtoon = snapshot.data![index];
-        return Text(webtoon.title);
+        return Column(
+          children: [
+            SizedBox(
+              width: 250,
+              child: Image.network(webtoon.thumb),
+            ),
+            Text(webtoon.title),
+          ],
+        );
       },
-      separatorBuilder: (context, index) => const SizedBox(width: 20),
+      separatorBuilder: (context, index) => const SizedBox(width: 40),
     );
   }
 }
