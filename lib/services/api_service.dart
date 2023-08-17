@@ -34,7 +34,7 @@ class ApiService {
     throw Error();
   }
 
-  static Future<List<WebtoonEpisodeModel>> getLatestEpisodeById(
+  static Future<List<WebtoonEpisodeModel>> getLatestEpisodesById(
     String id,
   ) async {
     List<WebtoonEpisodeModel> episodesInstances = [];
