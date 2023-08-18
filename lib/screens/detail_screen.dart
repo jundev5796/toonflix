@@ -71,11 +71,28 @@ class _DetailScreenState extends State<DetailScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 25,
+          ),
           FutureBuilder(
             future: webtoon,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data!.about);
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        snapshot.data!.about,
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
               }
               return const Text("...");
             },
