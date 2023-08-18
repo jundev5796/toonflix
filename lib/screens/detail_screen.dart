@@ -43,46 +43,44 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 50,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Hero(
-                tag: widget.id,
-                child: Container(
-                  width: 250,
-                  clipBehavior: Clip.hardEdge,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 15,
-                        offset: const Offset(10, 10),
-                        color: Colors.black.withOpacity(0.3),
-                      )
-                    ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 50),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Hero(
+                  tag: widget.id,
+                  child: Container(
+                    width: 250,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 15,
+                          offset: const Offset(10, 10),
+                          color: Colors.black.withOpacity(0.3),
+                        )
+                      ],
+                    ),
+                    child: Image.network(widget.thumb),
                   ),
-                  child: Image.network(widget.thumb),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          FutureBuilder(
-            future: webtoon,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 50,
-                  ),
-                  child: Column(
+              ],
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            FutureBuilder(
+              future: webtoon,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -101,39 +99,39 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                     ],
-                  ),
-                );
-              }
-              return const Text("...");
-            },
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          FutureBuilder(
-            future: episodes,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Column(
-                  children: [
-                    for (var episode in snapshot.data!)
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(episode.title),
-                            const Icon(
-                              Icons.chevron_right_rounded,
-                            ),
-                          ],
+                  );
+                }
+                return const Text("...");
+              },
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            FutureBuilder(
+              future: episodes,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
+                    children: [
+                      for (var episode in snapshot.data!)
+                        Container(
+                          child: Row(
+                            children: [
+                              Text(episode.title),
+                              const Icon(
+                                Icons.chevron_right_rounded,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                  ],
-                );
-              }
-              return Container();
-            },
-          ),
-        ],
+                    ],
+                  );
+                }
+                return Container();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
