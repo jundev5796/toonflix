@@ -83,18 +83,14 @@ class _DetailScreenState extends State<DetailScreen> {
                       children: [
                         Text(
                           snapshot.data!.about,
-                          style: const TextStyle(
-                            fontSize: 16,
-                          ),
+                          style: const TextStyle(fontSize: 16),
                         ),
                         const SizedBox(
                           height: 15,
                         ),
                         Text(
                           '${snapshot.data!.genre} / ${snapshot.data!.age}',
-                          style: const TextStyle(
-                            fontSize: 16,
-                          ),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ],
                     );
@@ -117,6 +113,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.green.shade400,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 5,
+                                  offset: const Offset(5, 5),
+                                  color: Colors.black.withOpacity(0.1),
+                                ),
+                              ],
                             ),
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
@@ -141,13 +144,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                 ],
                               ),
                             ),
-                          ),
+                          )
                       ],
                     );
                   }
                   return Container();
                 },
-              ),
+              )
             ],
           ),
         ),
