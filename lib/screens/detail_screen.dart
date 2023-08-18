@@ -108,7 +108,7 @@ class _DetailScreenState extends State<DetailScreen> {
             },
           ),
           const SizedBox(
-            height: 50,
+            height: 25,
           ),
           FutureBuilder(
             future: episodes,
@@ -116,7 +116,17 @@ class _DetailScreenState extends State<DetailScreen> {
               if (snapshot.hasData) {
                 return Column(
                   children: [
-                    for (var episode in snapshot.data!) Text(episode.title)
+                    for (var episode in snapshot.data!)
+                      Container(
+                        child: Row(
+                          children: [
+                            Text(episode.title),
+                            const Icon(
+                              Icons.chevron_right_rounded,
+                            ),
+                          ],
+                        ),
+                      ),
                   ],
                 );
               }
