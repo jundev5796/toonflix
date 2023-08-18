@@ -117,7 +117,8 @@ class _DetailScreenState extends State<DetailScreen> {
                         for (var episode in snapshot.data!)
                           Container(
                             decoration: BoxDecoration(
-                              color: Colors.green.shade300,
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.green.shade400,
                             ),
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
@@ -126,9 +127,15 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                               child: Row(
                                 children: [
-                                  Text(episode.title),
+                                  Text(
+                                    episode.title,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                   const Icon(
                                     Icons.chevron_right_rounded,
+                                    color: Colors.white,
                                   ),
                                 ],
                               ),
